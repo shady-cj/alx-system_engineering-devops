@@ -1,0 +1,2 @@
+#!/bin/bash
+chown betty $(find . -user guillaume -name hello)
