@@ -1,1 +1,1 @@
-Working with redirections and standard i/o in bash script
+Working with redirections and standard I/O in bash script
