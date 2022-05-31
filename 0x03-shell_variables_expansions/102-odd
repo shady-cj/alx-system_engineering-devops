@@ -1,0 +1,2 @@
+#!/bin/bash
+tail -n $(ls -1 | wc -l)
