@@ -1,16 +1,16 @@
-Learning Objectives
+# Learning Objectives
 
 At the end of this project, you are expected to be able to explain to anyone, without the help of Google:
 General
 
     What happens when you type $ ls -l *.txt
 
-Shell Initialization Files
+# Shell Initialization Files
 
     What are the /etc/profile file and the /etc/profile.d directory
     What is the ~/.bashrc file
 
-Variables
+# Variables
 
     What is the difference between a local and a global variable
     What is a reserved variable
@@ -19,13 +19,13 @@ Variables
     What are special parameters
     What is the special parameter 0?
 
-Expansions
+# Expansions
 
     What is expansion and how to use them
     What is the difference between single and double quotes and how to use them properly
     How to do command substitution with  and backticks
 
-Shell Arithmetic
+# Shell Arithmetic
 
     How to perform arithmetic operations with the shell
 
