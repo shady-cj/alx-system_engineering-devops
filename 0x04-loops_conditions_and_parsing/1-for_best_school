@@ -2,7 +2,7 @@
 # Printing the phrase Best School using the for loop
 phrase="Best School"
 
-for i in {1..10};
+for _ in {1..10};
 do
 	echo "$phrase"
 done
