@@ -1,0 +1,25 @@
+#!/usr/bin/env bash
+# printing numbers from 1-20 with different strings at certain iteration
+
+n=1
+
+
+while ((n < 21))
+do
+	echo "$n"
+	case $n in
+	4)
+		echo "bad luck from China"
+		;;
+	9)
+		echo "bad luck from Japan"
+		;;
+	17)
+		echo "bad luck from Italy"
+		;;
+	*)
+		echo -n
+		;;
+	esac
+	(( n++ ))
+done
