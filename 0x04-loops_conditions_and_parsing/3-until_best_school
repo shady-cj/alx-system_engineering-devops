@@ -1,0 +1,12 @@
+#!/usr/bin/env bash
+# Printing Best School 10 times using until loop
+
+phrase="Best School"
+
+n=1
+
+until ((n > 10));
+do 
+	echo "$phrase"
+	: $(( n++ ))
+done
