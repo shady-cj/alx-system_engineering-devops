@@ -1,0 +1,17 @@
+#!/usr/bin/env bash
+# Printing a phrase using while loop and adding additional statement on the 9th iteration
+
+
+phrase="Best School"
+
+n=0
+
+while [ $n -lt 10 ];
+do
+	echo "$phrase"
+	if [ $n -eq 8 ];
+	then 
+		echo "Hi"
+	fi
+	(( n++ ))
+done
