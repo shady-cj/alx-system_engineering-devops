@@ -2,7 +2,7 @@
 # Using for loop to print the files in the current directory
 
 
-for file in `ls`;
+for file in *;
 do
 	echo "${file##*-}"
 done
