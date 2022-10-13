@@ -135,9 +135,9 @@ sylvain@ubuntu$
 
 Write a Bash script that loops from 1 to 10 and:
 
-displays bad luck for the 4th loop iteration
-displays good luck for the 8th loop iteration
-displays Best School for the other iterations
+* displays bad luck for the 4th loop iteration
+* displays good luck for the 8th loop iteration
+* displays Best School for the other iterations
 Requirements:
 
 You must use the while loop (for and until are forbidden)
@@ -166,9 +166,9 @@ sylvain@ubuntu$
 
 Write a Bash script that displays numbers from 1 to 20 and:
 
-displays 4 and then bad luck from China for the 4th loop iteration
-displays 9 and then bad luck from Japan for the 9th loop iteration
-displays 17 and then bad luck from Italy for the 17th loop iteration
+* displays 4 and then bad luck from China for the 4th loop iteration
+* displays 9 and then bad luck from Japan for the 9th loop iteration
+* displays 17 and then bad luck from Italy for the 17th loop iteration
 Requirements:
 
 You must use the while loop (for and until are forbidden)
@@ -348,13 +348,13 @@ Requirements:
 
 You must use if and, else (case is forbidden)
 Your Bash script should check if the file exists and print:
-if the file exists: school file exists
-if the file does not exist: school file does not exist
-If the file exists, print:
-if the file is empty: school file is empty
-if the file is not empty: school file is not empty
-if the file is a regular file: school is a regular file
-if the file is not a regular file: (nothing)
+* if the file exists: school file exists
+* if the file does not exist: school file does not exist
+* If the file exists, print:
+	* if the file is empty: school file is empty
+	* if the file is not empty: school file is not empty
+	* if the file is a regular file: school is a regular file
+	* if the file is not a regular file: (nothing)
 
 **Files** - 9-to_file_or_not_to_file
 
@@ -379,5 +379,48 @@ sylvain@ubuntu$ mkdir school
 sylvain@ubuntu$ ./9-to_file_or_not_to_file 
 school file exists
 school file is not empty
+sylvain@ubuntu$ 
+```
+
+
+
+### 10. FizzBuzz
+
+Write a Bash script that displays numbers from 1 to 100.
+
+Requirements:
+
+* Displays FizzBuzz when the number is a multiple of 3 and 5
+* Displays Fizz when the number is multiple of 3
+* Displays Buzz when the number is a multiple of 5
+* Otherwise, displays the number
+* In a list format
+
+
+**Files** - 10-fizzbuzz
+
+
+```
+sylvain@ubuntu$ ./10-fizzbuzz | head -20
+1
+2
+Fizz
+4
+Buzz
+Fizz
+7
+8
+Fizz
+Buzz
+11
+Fizz
+13
+14
+FizzBuzz
+16
+17
+Fizz
+19
+Buzz
 sylvain@ubuntu$ 
 ```
