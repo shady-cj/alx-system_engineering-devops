@@ -1,0 +1,10 @@
+#!/usr/bin/env bash
+# Printing out the phrase Best School 10 times using while loop
+phrase="Best School"
+let "n = 0"
+
+while [ $n -lt 10 ];
+do 
+	echo "$phrase"
+	(( n++ ))
+done
