@@ -1,0 +1,18 @@
+#!/usr/bin/env bash
+# Printing bad luck on 4th iterarion, good luck for the 8th iteration and Best School for other iteration
+
+n=1
+
+while ((n < 11));
+do
+	if ((n == 4));
+	then
+		echo "bad luck"
+	elif ((n == 8));
+	then
+		echo "good luck"
+	else
+		echo "Best School"
+	fi
+	((n++))
+done
