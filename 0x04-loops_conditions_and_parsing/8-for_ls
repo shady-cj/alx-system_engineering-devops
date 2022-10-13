@@ -1,0 +1,8 @@
+#!/usr/bin/env bash
+# Using for loop to print the files in the current directory
+
+
+for file in `ls`;
+do
+	echo "${file##*-}"
+done
