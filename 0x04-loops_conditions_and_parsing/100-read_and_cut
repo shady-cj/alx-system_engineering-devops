@@ -1,0 +1,9 @@
+#!/usr/bin/env bash
+# Read a /etc/passwd and returning a specific info
+
+
+
+for line in `cat /etc/passwd`;
+do
+	echo "$((line | cut -d ":" -f 1)):$((line | cut -d ":" -f 3)):$((line | cut -d ":" -f 6))"
+done
