@@ -1,4 +1,4 @@
 #!/usr/bin/env bash
 #printing and sorting unique values
 
-awk '{print $1, $9}' apache-access.log | sort -hr | uniq -cd | sort -hr
+awk '{print $1, $9}' apache-access.log | sort | uniq -cd | sort -nr | awk '{print "   ",$1, $2, $3}'
