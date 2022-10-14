@@ -1,0 +1,12 @@
+#!/usr/bin/env bash
+# trapping signals
+
+
+n=1
+
+while [ $n -eq 1 ];
+do
+	trap "echo I am invincible!!!" 15
+	echo "To infinity and beyond"
+	sleep 2
+done
