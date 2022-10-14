@@ -1,4 +1,4 @@
 #!/usr/bin/env bash
 #printing and sorting unique values
 
-awk '{count[$1]++} END {for (word in count) print "   ",count[word], word, $9}' apache-access.log | sort -hr
+awk '{print $1, $9}' apache-access.log | sort -hr | uniq -cd | sort -hr
