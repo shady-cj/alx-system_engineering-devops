@@ -1,0 +1,5 @@
+#!/usr/bin/env bash
+# Using pgrep to get all the bash
+
+
+pgrep -l bash
