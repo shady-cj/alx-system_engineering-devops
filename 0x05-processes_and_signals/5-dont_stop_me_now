@@ -2,3 +2,5 @@
 # Killing a process
 
 pgrep -f 4-to_infinity_and_beyond | xargs kill
+
+# pkill -f 4-to_infinity_and_beyond
