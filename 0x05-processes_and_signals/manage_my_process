@@ -1,0 +1,8 @@
+#!/usr/bin/env bash
+# A script that wirtes i am alive to a file
+
+while :
+do 
+	echo "I am alive" >> /tmp/my_process
+	sleep 2
+done
