@@ -9,12 +9,12 @@ case "$1" in
 		echo "manage_my_process started"
 		;;
 	"stop")
-		kill $(cat $pfile)
+		kill "$(cat $pfile)"
 		rm -f $pfile
 		echo "manage_my_process stopped"
 		;;
 	"restart")
-		kill $(cat $pfile)
+		kill "$(cat $pfile)"
 		rm -f $pfile
 		./manage_my_process &
 		echo $! > $pfile
