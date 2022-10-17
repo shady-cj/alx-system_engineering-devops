@@ -1,22 +1,23 @@
 #!/usr/bin/env bash
 # A bash init scripts that starts up manage_my_process script
 
+pfile="/var/run/my_process.pid"
 case "$1" in
 	"start")
-		./manage_my_process
-		touch /var/run/$!
+		./manage_my_process &
+		echo $! > $pfile
 		echo "manage_my_process started"
 		;;
 	"stop")
-		pkill $!
-		rm -f /var/run/$!
+		kill $(cat $pfile)
+		rm -f $pfile
 		echo "manage_my_process stopped"
 		;;
 	"restart")
-		pkill $!
-		rm -f /var/run/$!
-		./manage_my_process
-		touch /var/run/$!
+		kill $(cat $pfile)
+		rm -f $pfile
+		./manage_my_process &
+		echo $! > $pfile
 		echo "manage_my_process restarted"
 		;;
 	*)
