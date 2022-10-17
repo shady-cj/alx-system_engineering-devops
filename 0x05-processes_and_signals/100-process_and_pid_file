@@ -5,11 +5,12 @@ file='/var/run/myscript.pid'
 echo "${BASHPID}" >> $file
 i=1
 
-while [ i = 1 ];
+while [ $i = 1 ];
 do
-	echo "To infinity and beyond"
 	trap "echo Y U no love me; break" SIGINT
 	trap "echo I hate the kill command; break" SIGTERM
+	echo "To infinity and beyond"
+	sleep 2
 done
 
 rm $file
