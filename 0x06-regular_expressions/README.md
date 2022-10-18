@@ -69,3 +69,29 @@ Requirements:
 Your regex should not contain square brackets
 
 **File**: 4-repetition_token_3.rb
+
+
+### 5. Not quite HBTN yet
+
+Requirements:
+
+* The regular expression must be exactly matching a string that starts with `h` ends with `n` and can have any single character in between
+* Using the project instructions, create a Ruby script that accepts one argument and pass it to a regular expression matching method
+
+**Files** - 5-beginning_and_end.rb
+
+
+```
+Example:
+
+sylvain@ubuntu$ ./5-beginning_and_end.rb 'hn' | cat -e
+$
+sylvain@ubuntu$ ./5-beginning_and_end.rb 'hbn' | cat -e
+hbn$
+sylvain@ubuntu$ ./5-beginning_and_end.rb 'hbtn' | cat -e
+$
+sylvain@ubuntu$ ./5-beginning_and_end.rb 'h8n' | cat -e
+h8n$
+sylvain@ubuntu$
+$
+```
