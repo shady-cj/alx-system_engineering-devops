@@ -48,3 +48,12 @@ Requirements:
 
 **Files** - 2-repetition_token_1.rb
 
+
+### 3. Repetition Token #2
+
+Requirements:
+
+* Find the regular expression that will match `hbtn`, `hbttn`, `hbtttn`, `hbttttn`
+* Using the project instructions, create a Ruby script that accepts one argument and pass it to a regular expression matching method
+
+**Files**: 3-repetition_token_2.rb
