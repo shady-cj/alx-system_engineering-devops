@@ -57,3 +57,15 @@ Requirements:
 * Using the project instructions, create a Ruby script that accepts one argument and pass it to a regular expression matching method
 
 **Files**: 3-repetition_token_2.rb
+
+
+### 4. Repetition Token #3
+
+Requirements:
+
+* Find the regular expression that will match `hbn`, `hbtn`, `hbttn`, `hbtttn`, `hbttttn`
+
+* Using the project instructions, create a Ruby script that accepts one argument and pass it to a regular expression matching method
+Your regex should not contain square brackets
+
+**File**: 4-repetition_token_3.rb
