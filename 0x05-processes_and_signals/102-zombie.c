@@ -12,7 +12,7 @@ int infinite_while(void)
 {
 	while (1)
 	{
-		sleep (1);
+		sleep(1);
 	}
 	return (0);
 }
@@ -32,7 +32,7 @@ int main(void)
 		if (child_p == 0)
 		{
 			printf("Zombie process created, PID: %d\n", getpid());
-			exit (0);
+			exit(0);
 		}
 	}
 	infinite_while();
