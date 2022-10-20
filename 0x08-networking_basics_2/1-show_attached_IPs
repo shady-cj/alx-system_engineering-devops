@@ -1,0 +1,4 @@
+#!/usr/bin/env bash
+# A script to display the current machine active ip addresses
+
+ifconfig -a | grep -E 'inet\b' | cut -d " " -f10
