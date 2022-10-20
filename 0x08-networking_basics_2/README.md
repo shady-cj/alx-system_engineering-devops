@@ -80,3 +80,42 @@ Obviously, the IPs displayed may be different depending on which machine you are
 
 Note that we can see our localhost IP :)
 
+
+
+
+### 2. Port listening on localhost
+
+Write a Bash script that listens on port 98 on localhost.
+
+
+**Files** - 100-port_listening_on_localhost
+
+Terminal 0
+
+Starting my script.
+```
+sylvain@ubuntu$ sudo ./100-port_listening_on_localhost
+```
+Terminal 1
+
+Connecting to localhost on port 98 using telnet and typing some text.
+```
+sylvain@ubuntu$ telnet localhost 98
+Trying 127.0.0.2...
+Connected to localhost.
+Escape character is '^]'.
+Hello world
+test
+```
+
+
+Terminal 0
+
+Receiving the text on the other side.
+
+```
+sylvain@ubuntu$ sudo ./100-port_listening_on_localhost
+Hello world
+test
+```
+

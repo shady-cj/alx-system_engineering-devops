@@ -1,0 +1,4 @@
+#!/usr/bin/env bash
+# A script that opens port 98 on localhost
+
+nc -l 98
