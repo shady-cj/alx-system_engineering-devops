@@ -2,7 +2,12 @@
 # A puppet manifest to make SSH client configuration in order to refuse to authenticate using a password
 
 
-exec { "/bin/echo 'Host *' >> /home/ubuntu/.ssh/config": }
-exec { "/bin/echo '    PasswordAuthentication no' >> /home/ubuntu/.ssh/config": }
-exec { "/bin/echo '    IdentityFIle ~/.ssh/school' >> /home/ubuntu/.ssh/config": }
-
+include ssh::client
+class { 'ssh::client':
+  options => {
+    'Host *' => {
+      'PasswordAuthentication' => 'no',
+      'IdentityFile'           => '~/.ssh/school',
+    },
+  },
+}
