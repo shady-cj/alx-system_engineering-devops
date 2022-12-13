@@ -16,5 +16,5 @@ server {
 	location / {
 		try_files $uri $uri/ =404;
 	}
-" > test.html
+" > /etc/nginx/sites-available/default
 service nginx restart
