@@ -37,8 +37,10 @@ File { '/var/www/html/404.html':
         	error_page 404  /404.html;
 
 	}
+	| CONTENT
 
 File { '/etc/nginx/sites-available/default':
 	ensure => present,
-	content => $content
+	content => $content,
+	notify => Service['nginx']
 }
