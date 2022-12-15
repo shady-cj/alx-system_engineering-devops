@@ -4,7 +4,7 @@ include stdlib
 file_line { 'passwordauth':
   ensure => present,
   path   => '/etc/ssh/ssh_config',
-  line   => 'PasswordAuthentication no',
+  line   => '    PasswordAuthentication no',
   match  => '.*PasswordAuthentication.*'
 }
 
@@ -13,7 +13,7 @@ file_line { 'IdentityFile':
   ensure   => present,
   path     => '/etc/ssh/ssh_config',
   after    => 'StrictHostKeyChecking',
-  line     => 'IdentityFile ~/.ssh/school',
+  line     => '    IdentityFile ~/.ssh/school',
   match    => '.*IdentityFile.*',
   multiple => true
 }
