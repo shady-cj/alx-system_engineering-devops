@@ -2,28 +2,30 @@
 
 
 package { 'nginx':
-	ensure => installed,
-	before => Service['nginx']
+  ensure => installed,
+  before => Service['nginx']
 }
 
 service { 'nginx':
-	ensure => running,
-	require => Package['nginx'],
-	subscribe => File['/etc/nginx/sites-available/default']
+  ensure    => running,
+  require   => Package['nginx'],
+  subscribe => File['/etc/nginx/sites-available/default']
 }
 
 
 File { '/var/www/html/index.html':
-	ensure => file,
-	content => 'Hello World!'
+  ensure  => file,
+  content => 'Hello World!',
+  require => Package['nginx']
 }
 
 File { '/var/www/html/404.html':
-	ensure => file,
-	content => "Ceci n'est pas une page"
+  ensure  => file,
+  content => "Ceci n'est pas une page",
+  require => Package['nginx']
 }
 
-@content = @(CONTENT)
+$content = @(CONTENT)
 	server {
         	listen 80 default_server;
         	listen [::]:80 default_server;
@@ -40,7 +42,7 @@ File { '/var/www/html/404.html':
 	| CONTENT
 
 File { '/etc/nginx/sites-available/default':
-	ensure => present,
-	content => $content,
-	notify => Service['nginx']
+  ensure  => present,
+  content => $content,
+  notify  => Service['nginx']
 }
