@@ -1,0 +1,18 @@
+#!/usr/bin/env bash
+# Script to configure a round robin load balancer with Haproxy
+
+apt-get update
+apt-get install -y haproxy=2.6.\*
+cp /etc/haproxy/haproxy.cfg /etc/haproxy/haproxy.cfg.bak
+echo "
+frontend haproxy-main
+	bind *:80
+	option forwardfor
+	default_backend nginx_webservers
+
+backend nginx_webservers
+	balance roundrobin
+	server webserver1 54.209.240.136:80 check
+	server webserver2 100.24.237.186:80 check
+" | sudo tee -a /etc/haproxy/haproxy.cfg
+service haproxy restart
