@@ -2,7 +2,7 @@
 # Script to configure a round robin load balancer with Haproxy
 
 apt-get update
-apt-get install -y haproxy=2.6.\*
+apt-get install -y haproxy
 cp /etc/haproxy/haproxy.cfg /etc/haproxy/haproxy.cfg.bak
 echo "
 frontend haproxy-main
