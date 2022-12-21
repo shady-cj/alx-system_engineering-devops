@@ -1,7 +1,7 @@
 # using puppet to install and configure nginx
 
 exec { 'update-repo':
-  command => '/usr/bin/apt-get update',
+  command => '/bin/apt-get update',
   before  => Package['nginx']
 }
 
@@ -31,25 +31,26 @@ file { '/var/www/html/404.html':
   require => Package['nginx']
 }
 
+$content = @(CONTENT)
+	server {
+        	listen 80 default_server;
+        	listen [::]:80 default_server;
+			add_header X-Served-By $Hostname;
+        	root /var/www/html;
+        	index index.html index.htm index.nginx-debian.html;
+
+        	location /redirect_me {
+                	return 301 https://www.youtube.com/watch?v=QH2-TGUlwu4;
+        	}
+
+        	error_page 404  /404.html;
+
+	}
+	| CONTENT
 
 file { '/etc/nginx/sites-available/default':
   ensure  => present,
-  content => '
-server {
-        listen 80 default_server;
-       	listen [::]:80 default_server;
-	add_header X-Served-By $Hostname;
-       	root /var/www/html;
-       	index index.html index.htm index.nginx-debian.html;
-
-       	location /redirect_me {
-               	return 301 https://www.youtube.com/watch?v=QH2-TGUlwu4;
-       	}
-
-       	error_page 404  /404.html;
-
-}
-',
+  content => $content,
   notify  => Service['nginx'],
   before  => Exec['substituteHostname'],
   require => Package['nginx']
