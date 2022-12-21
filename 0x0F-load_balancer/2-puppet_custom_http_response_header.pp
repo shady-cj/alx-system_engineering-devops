@@ -29,6 +29,7 @@ $content = @(CONTENT)
 	server {
         	listen 80 default_server;
         	listen [::]:80 default_server;
+			add_header X-Served-By $Hostname;
         	root /var/www/html;
         	index index.html index.htm index.nginx-debian.html;
 
@@ -44,5 +45,11 @@ $content = @(CONTENT)
 File { '/etc/nginx/sites-available/default':
   ensure  => present,
   content => $content,
-  notify  => Service['nginx']
+  notify  => Service['nginx'],
+  before  => Exec['substituteHostname']
+}
+
+exec { 'substituteHostname':
+  command => '/bin/sed -i "s/\$Hostname/$(hostname)/g" /etc/nginx/sites-available/default',
+  require => File['/etc/nginx/sites-available/default']
 }
