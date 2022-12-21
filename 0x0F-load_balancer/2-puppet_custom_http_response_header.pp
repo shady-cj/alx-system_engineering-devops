@@ -1,9 +1,15 @@
 # using puppet to install and configure nginx
 
+exec { 'update-repo':
+  command => '/bin/apt-get update',
+  before  => Package['nginx']
+}
 
 package { 'nginx':
-  ensure => installed,
-  before => Service['nginx']
+  ensure   => installed,
+  provider => apt,
+  before   => Service['nginx'],
+  require  => Exec['update-repo']
 }
 
 service { 'nginx':
@@ -46,7 +52,8 @@ File { '/etc/nginx/sites-available/default':
   ensure  => present,
   content => $content,
   notify  => Service['nginx'],
-  before  => Exec['substituteHostname']
+  before  => Exec['substituteHostname'],
+  require => Package['nginx']
 }
 
 exec { 'substituteHostname':
