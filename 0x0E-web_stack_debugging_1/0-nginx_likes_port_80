@@ -1,0 +1,4 @@
+#!/usr/bin/env bash
+# Script to fix an issue with nginx not running
+ln -sf /etc/nginx/sites-available/default /etc/nginx/sites-enabled/
+service nginx restart
