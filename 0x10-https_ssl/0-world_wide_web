@@ -5,7 +5,7 @@ domainsubdomaincheck () {
 	subdomains=("www" "lb-01" "web-01" "web-02")
 	if [ -z "$2" ]
 	then
-		for x in ${subdomains[@]}
+		for x in "${subdomains[@]}"
 	       	do 
 			url="$x.$1"
 			dig "$url" | awk -v subdomain="$x" 'BEGIN {line = 0} { if ($0 ~ /.*ANSWER SECTION.*/) line = NR + 1 } { if (NR == line) print "The subdomain "subdomain" is a "$4" record and points to "$5""}'
