@@ -1,0 +1,27 @@
+#!/usr/bin/env bash
+# Creating a function that pulls domain name info and the type of record and printing strings about the pulled information 
+
+domainsubdomaincheck () {
+	subdomains=("www" "lb-01" "web-01" "web-02")
+	if [ -z "$2" ]
+	then
+		for x in ${subdomains[@]}
+	       	do 
+			url="$x.$1"
+			dig "$url" | awk -v subdomain="$x" 'BEGIN {line = 0} { if ($0 ~ /.*ANSWER SECTION.*/) line = NR + 1 } { if (NR == line) print "The subdomain "subdomain" is a "$4" record and points to "$5""}'
+
+	       	done
+	else
+		url="$2.$1"
+		dig "$url" | awk -v subdomain="$2" 'BEGIN {line = 0} { if ($0 ~ /.*ANSWER SECTION.*/) line = NR + 1 } { if (NR == line) print "The subdomain "subdomain" is a "$4" record and points to "$5""}'
+	fi
+
+}
+
+if [ -z "$2" ]
+then 
+	domainsubdomaincheck "$1"
+else
+	domainsubdomaincheck "$1" "$2"
+fi
+
