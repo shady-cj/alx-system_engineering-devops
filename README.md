@@ -1,1 +1,3 @@
-Writing basic linux command using bash scripts
+Learning about systems engineering devops, tools, methodology....
+Ranging from learning basic Linux commands to advanced commands, configuring,
+Monitoring, and deploying web servers and applications 
