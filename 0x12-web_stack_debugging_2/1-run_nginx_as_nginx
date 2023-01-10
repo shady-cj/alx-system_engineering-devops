@@ -1,8 +1,9 @@
 #!/usr/bin/env bash
 # Running nginx as nginx
 sed -i 's/\s80\s/ 8080 /g' /etc/nginx/sites-available/default
-sed -i 's/#?user.*/user nginx;/g' /etc/nginx/nginx.conf
+pkill apache2
+chmod 600 /etc/nginx/nginx.conf
 chown -R nginx:nginx /var/log/nginx
 chown -R nginx:nginx /etc/nginx
-chown nginx:nginx /run/nginx.pid
-su - nginx -c "service nginx restart"
+sudo -u nginx service nginx start
+# su - nginx -c "service nginx restart"
