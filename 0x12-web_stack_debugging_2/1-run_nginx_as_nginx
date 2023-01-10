@@ -3,7 +3,4 @@
 sed -i 's/\s80\s/ 8080 /g' /etc/nginx/sites-available/default
 pkill apache2
 chmod 644 /etc/nginx/nginx.conf
-chown -R nginx:nginx /var/log/nginx
-chown -R nginx:nginx /etc/nginx
 sudo -u nginx service nginx start
-# su - nginx -c "service nginx restart"
