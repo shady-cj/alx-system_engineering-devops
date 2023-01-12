@@ -107,3 +107,10 @@ Requirements:
 * Provide your MySQL replica configuration as an answer file with the name 4-mysql_configuration_replica
 
 **Files** - `4-mysql_configuration_primary`, `4-mysql_configuration_replica`
+
+
+## 5. MySQL backup
+
+Creating a backup of all databases using a bash script
+
+**Files** - 5-mysql_backup
