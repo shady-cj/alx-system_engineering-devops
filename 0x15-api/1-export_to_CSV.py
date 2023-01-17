@@ -28,7 +28,6 @@ if __name__ == "__main__":
             t = [id, username, task_completed, title]
             user_todos.append(t)
 
-    with open(filename, "w", encoding='UTF8') as f:
-        writer = csv.writer(f)
-        for t in user_todos:
-            writer.writerow(t)
+    with open(filename, "w", encoding="UTF-8") as f:
+        writer = csv.writer(f, quoting=csv.QUOTE_ALL)
+        writer.writerows(user_todos)
