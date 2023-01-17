@@ -12,7 +12,8 @@ if __name__ == "__main__":
     id = sys.argv[1]
     if not id.isnumeric():
         sys.exit()
-    user = requests.get("https://jsonplaceholder.typicode.com/users/{id}".format(id=id))
+    user = requests.get("https://jsonplaceholder.typicode.com/users/{}"
+                        .format(id))
     user = user.json()
     user_name = user.get("name")
     user_todos = {"completed": 0, "todos": 0, "todos_complete": []}
