@@ -41,7 +41,7 @@ def count_words(subreddit, word_list, after=None, stats={}):
                 if sorted_stat.get(v):
                    sorted_stat[v].append(k)
                 else:
-                    sorted_stat = []
+                    sorted_stat[v] = []
             
             numbers = sorted(list(sorted_stat.keys()),
                              reverse=True)
