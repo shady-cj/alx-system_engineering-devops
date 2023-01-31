@@ -11,7 +11,7 @@ def top_ten(subreddit):
     Returns the first ten hot posts
     of the particular  subreddit
     """
-    headers = {"User-Agent": "alx(api_practice)"}
+    headers = {"User-Agent": "alx/com.reddit"}
     url = "https://api.reddit.com/r/{}/hot".format(subreddit)
     resp = requests.get(url, headers=headers, allow_redirects=False)
     try:
