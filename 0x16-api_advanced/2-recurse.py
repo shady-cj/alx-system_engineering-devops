@@ -4,6 +4,7 @@ This module fetches the all top posts
 for a specific subreddit using reddit's api
 """
 import requests
+import json
 
 
 def recurse(subreddit, after=None):
@@ -21,6 +22,8 @@ def recurse(subreddit, after=None):
     resp = requests.get(url, headers=headers, allow_redirects=False)
     try:
         data = resp.json()
+        if data.get('error'):
+            return None
         posts = data.get("data").get("children")
         hot_list = []
         for post in posts:
@@ -31,5 +34,5 @@ def recurse(subreddit, after=None):
             hot_list += more_posts
         return hot_list
 
-    except requests.exceptions.JSONDecodeError:
+    except json.decoder.JSONDecodeError:
         return None

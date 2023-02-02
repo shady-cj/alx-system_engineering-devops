@@ -4,6 +4,7 @@ This module counts  all top posts based on keyword searches
 for a specific subreddit using reddit's api
 """
 import requests
+import json
 
 
 def count_words(subreddit, word_list, after=None, stats={}):
@@ -22,6 +23,8 @@ def count_words(subreddit, word_list, after=None, stats={}):
     resp = requests.get(url, headers=headers, allow_redirects=False)
     try:
         data = resp.json()
+        if data.get("error"):
+            return None
         posts = data.get("data").get("children")
         for post in posts:
             title = (post.get("data").get("title"))
@@ -50,5 +53,5 @@ def count_words(subreddit, word_list, after=None, stats={}):
                 for entry in sorted_entries:
                     print("{}: {}".format(entry, num))
 
-    except requests.exceptions.JSONDecodeError:
+    except json.decoder.JSONDecodeError:
         return None

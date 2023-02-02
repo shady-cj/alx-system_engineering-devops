@@ -4,6 +4,7 @@ This module fetches the top posts
 for a specific subreddit using reddit's api
 """
 import requests
+import json
 
 
 def top_ten(subreddit):
@@ -16,10 +17,12 @@ def top_ten(subreddit):
     resp = requests.get(url, headers=headers, allow_redirects=False)
     try:
         data = resp.json()
+        if data.get('error'):
+            print(None)
         posts = data.get("data").get("children")
         for index, post in enumerate(posts):
             if index >= 10:
                 break
             print(post.get("data").get("title"))
-    except requests.exceptions.JSONDecodeError:
+    except json.decoder.JSONDecodeError:
         print(None)

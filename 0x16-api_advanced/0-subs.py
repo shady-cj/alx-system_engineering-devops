@@ -4,6 +4,7 @@ This module fetches the number of subscribers
 for a specific subreddit using reddit's api
 """
 import requests
+import json
 
 
 def number_of_subscribers(subreddit):
@@ -16,6 +17,8 @@ def number_of_subscribers(subreddit):
     resp = requests.get(url, headers=headers, allow_redirects=False)
     try:
         data = resp.json()
+        if data.get('error'):
+            return 0
         return int(data.get("data").get("subscribers"))
-    except requests.exceptions.JSONDecodeError:
+    except json.decoder.JSONDecodeError:
         return 0
