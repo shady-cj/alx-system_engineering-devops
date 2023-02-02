@@ -19,10 +19,11 @@ def top_ten(subreddit):
         data = resp.json()
         if data.get('error'):
             print(None)
-        posts = data.get("data").get("children")
-        for index, post in enumerate(posts):
-            if index >= 10:
-                break
-            print(post.get("data").get("title"))
+        else:
+            posts = data.get("data").get("children")
+            for index, post in enumerate(posts):
+                if index >= 10:
+                    break
+                print(post.get("data").get("title"))
     except json.decoder.JSONDecodeError:
         print(None)
