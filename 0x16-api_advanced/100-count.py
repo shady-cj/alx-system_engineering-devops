@@ -33,7 +33,7 @@ def count_words(subreddit, word_list, after=None, stats={}):
                     stats[word] = stats.get(word, 0) + w_count
         new_after = data.get("data").get("after")
         if new_after is not None:
-            count_words(subreddit, word_list, after, stats)
+            count_words(subreddit, word_list, new_after, stats)
         if after is None:
             sorted_stat = {}
             largest = []
@@ -41,8 +41,7 @@ def count_words(subreddit, word_list, after=None, stats={}):
                 if sorted_stat.get(v):
                    sorted_stat[v].append(k)
                 else:
-                    sorted_stat[v] = []
-            
+                    sorted_stat[v] = [k]
             numbers = sorted(list(sorted_stat.keys()),
                              reverse=True)
             for num in numbers:
