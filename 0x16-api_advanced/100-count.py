@@ -39,7 +39,7 @@ def count_words(subreddit, word_list, after=None, stats={}):
             largest = []
             for k, v in stats.items():
                 if sorted_stat.get(v):
-                   sorted_stat[v].append(k)
+                    sorted_stat[v].append(k)
                 else:
                     sorted_stat[v] = [k]
             numbers = sorted(list(sorted_stat.keys()),
@@ -49,7 +49,6 @@ def count_words(subreddit, word_list, after=None, stats={}):
                 sorted_entries = sorted(entries)
                 for entry in sorted_entries:
                     print("{}: {}".format(entry, num))
-
 
     except requests.exceptions.JSONDecodeError:
         return None
