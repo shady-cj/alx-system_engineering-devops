@@ -3,8 +3,8 @@
 This module fetches the all top posts
 for a specific subreddit using reddit's api
 """
-import requests
 import json
+import requests
 
 
 def recurse(subreddit, after=None):

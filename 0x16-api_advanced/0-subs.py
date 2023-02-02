@@ -3,8 +3,8 @@
 This module fetches the number of subscribers
 for a specific subreddit using reddit's api
 """
-import requests
 import json
+import requests
 
 
 def number_of_subscribers(subreddit):
