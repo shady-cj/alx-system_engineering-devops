@@ -1,0 +1,23 @@
+server {
+        listen 80;
+        server_name 54.209.240.136 ceejay.tech;
+
+
+        location / {
+                include proxy_params;
+                proxy_pass http://0.0.0.0:5003;
+        }
+        location ^~ /airbnb-onepage {
+                include proxy_params;
+                proxy_pass http://0.0.0.0:5000;
+        }
+
+        location ^~ /airbnb-dynamic/ {
+                include proxy_params;
+                proxy_pass http://0.0.0.0:5001/;
+        }
+        location ^~ /api/ {
+                include proxy_params;
+                proxy_pass http://0.0.0.0:5002;
+        }
+}
