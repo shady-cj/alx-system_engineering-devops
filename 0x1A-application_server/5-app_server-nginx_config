@@ -5,13 +5,11 @@ server {
 
         location / {
                 include proxy_params;
+                proxy_pass http://0.0.0.0:5003/2-hbnb;
+        }
+        location ^~ /static/ {
                 proxy_pass http://0.0.0.0:5003;
         }
-	
-	location ^~ /static/ {
-                proxy_pass http://0.0.0.0:5003;
-        }
-	
         location ^~ /airbnb-onepage {
                 include proxy_params;
                 proxy_pass http://0.0.0.0:5000;
@@ -25,4 +23,5 @@ server {
                 include proxy_params;
                 proxy_pass http://0.0.0.0:5002;
         }
+
 }
