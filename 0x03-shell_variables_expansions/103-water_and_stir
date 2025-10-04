@@ -1,0 +1,4 @@
+#!/bin/bash
+addition=$(($water#$WATER + $stir#$STIR))
+
+echo "obase=$bestchol,$addition" | bc
